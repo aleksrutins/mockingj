@@ -22,3 +22,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootJar {
+	mainClass = 'org.mockingj.mockingj.MockingjApplication'
+}
