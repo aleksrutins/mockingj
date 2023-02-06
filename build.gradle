@@ -23,6 +23,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-springBoot {
-	mainClass = 'org.mockingj.mockingj.MockingjApplication'
+jar {
+  manifest {
+    attributes(
+      'Main-Class': 'org.mockingj.mockingj.MockingjApplication'
+    )
+  }
 }
