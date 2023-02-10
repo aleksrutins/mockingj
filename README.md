@@ -1,24 +1,24 @@
-# README
+# mockingj
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Package Version](https://img.shields.io/hexpm/v/mockingj)](https://hex.pm/packages/mockingj)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/mockingj/)
 
-Things you may want to cover:
+A Gleam project
 
-* Ruby version
+## Quick start
 
-* System dependencies
+```sh
+gleam run   # Run the project
+gleam test  # Run the tests
+gleam shell # Run an Erlang shell
+```
 
-* Configuration
+## Installation
 
-* Database creation
+If available on Hex this package can be added to your Gleam project:
 
-* Database initialization
+```sh
+gleam add mockingj
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+and its documentation can be found at <https://hexdocs.pm/mockingj>.
