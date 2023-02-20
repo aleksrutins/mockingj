@@ -17,7 +17,7 @@ pub fn main() {
 
   io.debug(#("Listening on", port))
 
-  assert Ok(_) = mist.run_service(port, web_service, 5000)
+  assert Ok(_) = mist.run_service(port, web_service, 5_000_000)
   process.sleep_forever()
 }
 
