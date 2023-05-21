@@ -1,12 +1,25 @@
-import mist
 import gleam/erlang/process
 import gleam/erlang/os
 import gleam/int
 import gleam/io
 import gleam/result.{flatten, lazy_unwrap, map}
-import gleam/bit_builder
+import gleam/http/cowboy
 import gleam/http/response.{Response}
+import gleam/http/request.{Request}
+import gleam/bit_builder.{BitBuilder}
 
+// Define a HTTP service
+//
+pub fn my_service(_request: Request(t)) -> Response(BitBuilder) {
+  let body = bit_builder.from_string("Hello, world!")
+
+  response.new(200)
+  |> response.prepend_header("made-with", "Gleam")
+  |> response.set_body(body)
+}
+
+// Start it on port 3000!
+//
 pub fn main() {
   let port =
     lazy_unwrap(
@@ -17,11 +30,6 @@ pub fn main() {
 
   io.debug(#("Listening on", port))
 
-  assert Ok(_) = mist.run_service(port, web_service, 5_000_000)
+  let assert Ok(_) = cowboy.start(my_service, on_port: port)
   process.sleep_forever()
-}
-
-fn web_service(_request) {
-  let body = bit_builder.from_string("Hello, Joe!")
-  Response(200, [], body)
 }
